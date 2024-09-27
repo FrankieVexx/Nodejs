@@ -31,12 +31,42 @@
 // console.log(modules.sum(1, 2));
 // console.log(modules.pi);
 
+// var events = require('events');
+
+// var myEmitter = new events.EventEmitter();
+
+// myEmitter.on('someEvent', function(mssg){
+//     console.log(mssg);
+// });
+
+// myEmitter.emit('someEvent', 'The event was emitted');
+
+//  events and utl modules
+
 var events = require('events');
+var util = require('util');
 
-var myEmitter = new events.EventEmitter();
 
-myEmitter.on('someEvent', function(mssg){
-    console.log(mssg);
+var Person = function(name){
+    this.name = name;
+};
+
+
+util.inherits(Person, events.EventEmitter);
+
+var francode = new Person('francode');
+var Lydia = new Person('Lydia');
+var John = new Person('John');
+var Joyce = new Person('Joyce');
+
+var fam = [francode, Lydia, John, Joyce];
+
+fam.forEach(function(person){
+    person.on('speak', function(mssg){
+        console.log(person.name + ' said: ' + mssg);
+    });
 });
 
-myEmitter.emit('someEvent', 'The event was emitted');
+francode.emit('speak', 'I am a winner');
+Lydia.emit('speak', 'I am cold');
+John.emit('speak', 'I am hungry');
