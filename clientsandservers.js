@@ -7,9 +7,17 @@ var http = require('http');
 var fs = require('fs');
 var server = http.createServer(function(req, res){
     console.log('Request was made: ' + req.url);
-    res.writeHead(200, {'Content-Type': 'text/plain'});
-    var myReadStream = fs.createReadStream(__dirname + '/test.txt', 'utf8');
-    myReadStream.pipe(res);
+    res.writeHead(200, {'Content-Type': 'application/json'});
+    var obj = {
+        name: "Francode",
+        job: "Developer",
+        age: "28",
+        interest: "music",
+        country: "Kenya",
+    };
+    res.end(JSON.stringify(obj));
+    // var myReadStream = fs.createReadStream(__dirname + '/index.html', 'utf8');
+    // myReadStream.pipe(res);
     // res.end('I am happy\n');
 });
 
