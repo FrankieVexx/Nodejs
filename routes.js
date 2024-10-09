@@ -1,6 +1,6 @@
 var http = require('http');
 var fs = require('fs');
-const { RedirectHandler } = require('undici-types');
+const { fetch, RedirectHandler } = require('undici');
 
 var server = http.createServer(function(req, res){
     console.log("Request was made: " + req.url);
@@ -24,4 +24,4 @@ var server = http.createServer(function(req, res){
 });
 
 server.listen(3000, '127.0.0.1');
-console.log('server now listening to port 3000');   
+console.log('server now listening to port 3000');
