@@ -13,7 +13,7 @@ app.get('/contact', function(req, res) {
 
 
 app.get('/profile/:id', function(req, res) {
-    var data = {age: 29, job: 'Developer', hobbies: ['eating', 'fighting', 'fishing']};
+    var data = {name: "Francis", age: 29, job: 'Developer', hobbies: ['Singing', 'Writing', 'fishing']};
     res.render('profile', {person: req.params.id, data : data});
     // res.send('You requested to see a profile with the id of ' + req.params.id);
 });
