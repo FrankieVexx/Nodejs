@@ -4,11 +4,13 @@ var app = express();
 app.set('view engine', 'ejs');
 
 app.get('/', function(req, res) {
-    res.sendFile(__dirname + '/index.html');
+    // res.sendFile(__dirname + '/index.html');
+    res.render('index');
 });
 
 app.get('/contact', function(req, res) {
-    res.sendFile(__dirname + '/contact.html');
+    // res.sendFile(__dirname + '/contact.html');
+    res.render('contact');
 });
 
 
